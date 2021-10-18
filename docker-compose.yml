@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+  web:
+    image: alessandrolanni/php8.0-apache-custom:latest
+
+    volumes:
+      - .:/var/www
+
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: mariadb:10.6
+
+    environment:
+      MARIADB_ROOT_PASSWORD: test1234
+
+    volumes:
+      - db_data:/var/lib/mysql
+
+    networks:
+      - backend
+
+volumes:
+
+  db_data:
+
+networks:
+
+  frontend:
+
+  backend:
