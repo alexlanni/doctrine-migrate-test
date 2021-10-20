@@ -40,14 +40,17 @@
     "require": {
         "php": "^7.3 || ~8.0.0 || ~8.1.0",
         "composer/package-versions-deprecated": "^1.10.99",
+        "doctrine/doctrine-orm-module": "^4.0",
+        "laminas/laminas-cache": "^2.11",
+        "laminas/laminas-cli": "^1.2",
         "laminas/laminas-component-installer": "^2.5.0",
         "laminas/laminas-config-aggregator": "^1.5.0",
         "laminas/laminas-diactoros": "^2.6.0",
+        "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.3.1",
         "laminas/laminas-zendframework-bridge": "^1.2.0",
         "mezzio/mezzio": "^3.5.0",
         "mezzio/mezzio-helpers": "^5.6.0",
-        "laminas/laminas-servicemanager": "^3.4",
         "mezzio/mezzio-laminasrouter": "^3.0.1",
         "mezzio/mezzio-laminasviewrenderer": "^2.2"
     },
@@ -59,6 +62,22 @@
         "phpunit/phpunit": "^9.4.1",
         "roave/security-advisories": "dev-master",
         "filp/whoops": "^2.7.1"
+    },
+    "replace": {
+        "laminas/laminas-cache-storage-adapter-apc": "*",
+        "laminas/laminas-cache-storage-adapter-apcu": "*",
+        "laminas/laminas-cache-storage-adapter-blackhole": "*",
+        "laminas/laminas-cache-storage-adapter-dba": "*",
+        "laminas/laminas-cache-storage-adapter-ext-mongodb": "*",
+        "laminas/laminas-cache-storage-adapter-filesystem": "*",
+        "laminas/laminas-cache-storage-adapter-memcache": "*",
+        "laminas/laminas-cache-storage-adapter-memcached": "*",
+        "laminas/laminas-cache-storage-adapter-mongodb": "*",
+        "laminas/laminas-cache-storage-adapter-session": "*",
+        "laminas/laminas-cache-storage-adapter-wincache": "*",
+        "laminas/laminas-cache-storage-adapter-xcache": "*",
+        "laminas/laminas-cache-storage-adapter-zend-server": "*",
+        "laminas/laminas-cache-storage-adapter-memory": "*"
     },
     "autoload": {
         "psr-4": {

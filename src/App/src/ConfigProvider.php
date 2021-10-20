@@ -22,6 +22,29 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'laminas-cli' => [
+                'commands' => [
+                    'migrate:up'    => Command\MigrateUpCommand::class,
+                    'migrate:down'  => Command\MigrateDownCommand::class,
+                ],
+            ],
+            'sp-schema-migrate-config' => [
+                'version-history' => [
+                    'test' => [
+                        'v0',
+                        'v1.0',
+                        'v1.1',
+                        'v1.2',
+                        'v1.3',
+                        'v2.0'
+                    ],
+                    'test2' => [
+                        'v0',
+                        'v1.0'
+                    ],
+                ],
+
+            ]
         ];
     }
 
@@ -35,7 +58,9 @@ class ConfigProvider
                 Handler\PingHandler::class => Handler\PingHandler::class,
             ],
             'factories'  => [
-                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
+                Handler\HomePageHandler::class    => Handler\HomePageHandlerFactory::class,
+                Command\MigrateUpCommand::class   => Command\MigrateCommandFactory::class,
+                Command\MigrateDownCommand::class => Command\MigrateCommandFactory::class,
             ],
         ];
     }

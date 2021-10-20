@@ -10,6 +10,8 @@ services:
     networks:
       - frontend
       - backend
+    ports:
+      - 8080:80
 
   db:
     image: mariadb:10.6
@@ -22,6 +24,9 @@ services:
 
     networks:
       - backend
+
+    ports:
+      - 13306:3306
 
 volumes:
 

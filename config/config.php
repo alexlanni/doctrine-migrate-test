@@ -14,6 +14,14 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \DoctrineORMModule\ConfigProvider::class,
+    \DoctrineModule\ConfigProvider::class,
+    \Laminas\Cache\ConfigProvider::class,
+    \Laminas\Form\ConfigProvider::class,
+    \Laminas\InputFilter\ConfigProvider::class,
+    \Laminas\Filter\ConfigProvider::class,
+    \Laminas\Paginator\ConfigProvider::class,
+    \Laminas\Hydrator\ConfigProvider::class,
     \Mezzio\LaminasView\ConfigProvider::class,
     \Mezzio\Helper\ConfigProvider::class,
     \Mezzio\Router\LaminasRouter\ConfigProvider::class,

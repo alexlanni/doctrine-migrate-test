@@ -6,6 +6,7 @@ namespace App\Handler;
 
 use Aura\Di\Container;
 use Chubbyphp\Container\MinimalContainer;
+use Doctrine\ORM\EntityManager;
 use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\ServiceManager\ServiceManager;
@@ -31,14 +32,18 @@ class HomePageHandler implements RequestHandlerInterface
     /** @var null|TemplateRendererInterface */
     private $template;
 
+    private $em;
+
     public function __construct(
         string $containerName,
         Router\RouterInterface $router,
-        ?TemplateRendererInterface $template = null
+        ?TemplateRendererInterface $template = null,
+        EntityManager $em
     ) {
         $this->containerName = $containerName;
         $this->router        = $router;
         $this->template      = $template;
+        $this->em            = $em;
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
